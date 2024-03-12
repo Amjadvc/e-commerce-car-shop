@@ -1,0 +1,14 @@
+.home {
+  width: 100%;
+  overflow: hidden;
+  background-color: #f4f4f4;
+  position: relative;
+}
+
+.carList {
+  margin: 140px 0;
+}
+
+.bgColor {
+  background-color: #f4f4f4;
+}

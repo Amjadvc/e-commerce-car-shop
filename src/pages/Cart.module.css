@@ -1,0 +1,154 @@
+.cart {
+  position: relative;
+}
+
+@media (max-width: 769px) {
+  .cart {
+    overflow-x: clip;
+  }
+}
+
+@media (max-width: 769px) {
+  .cartNav {
+    background-color: var(--color-secodery-2);
+  }
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  left: -181px;
+  height: 109vh;
+  width: 100%;
+  object-fit: fill;
+  z-index: -1;
+}
+
+@media (min-width: 2000px), (min-height: 1000px) {
+  .bg {
+    height: 67% !important;
+    width: 100% !important;
+    object-fit: contain !important;
+    top: -49px !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .bg {
+    left: -160px;
+    height: 93vh;
+    width: 98%;
+  }
+}
+@media (max-width: 992px) {
+  .bg {
+    left: 0px;
+    height: 96vh;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+@media (max-width: 769px) {
+  .bg {
+    left: 0px;
+    top: 177px;
+    height: 53vh;
+    width: 121%;
+    object-fit: cover;
+  }
+}
+@media (max-width: 480px) {
+  .bg {
+    height: 33vh;
+  }
+}
+
+.cartHeader {
+  font-family: "Righteous", sans-serif;
+  font-size: 56px;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+  width: fit-content;
+  position: relative;
+  color: #000000b8;
+}
+@media (max-width: 1200px) {
+  .cartHeader {
+    font-size: 47px;
+  }
+}
+@media (max-width: 769px) {
+  .cartHeader {
+    font-size: 38px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .cartHeader {
+    font-size: 34px;
+  }
+}
+
+.cartHeader::before {
+  content: "";
+  position: absolute;
+  width: 114%;
+  height: 6px;
+  border-radius: 25px;
+  bottom: -11px;
+  background: #000000b8;
+}
+
+@media (max-width: 480px) {
+  .cartHeader::before {
+    height: 5px;
+  }
+}
+
+.tabelContainr {
+  margin: 131px 0;
+}
+.tabel {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabel thead tr th {
+  font-family: "Righteous", sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  padding: 18px 18px 0;
+  width: calc(100% / 4);
+  color: #000000bf;
+}
+
+@media (max-width: 769px) {
+  .tabel thead tr th {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tabel thead {
+    display: none;
+  }
+  .tabel,
+  .tabel tbody,
+  .tabel tr {
+    display: block;
+    width: 100%;
+  }
+
+  .tabel tr {
+    margin-bottom: 35px;
+    background: #f5f2f2;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 5px 0px #928d8e, 0px 6px 2px 0px #2d2b2c;
+  }
+
+  .cartContainer {
+    padding: 0 20px !important;
+  }
+}

@@ -1,0 +1,40 @@
+.notFoundContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 34px 0;
+  height: 100vh;
+  justify-content: center;
+}
+.notFoundContainer h1 {
+  font-size: 83px;
+  color: var(--color-primary-1);
+}
+.notFoundContainer p {
+  font-family: sans-serif;
+  font-size: 13px;
+  color: #1f1e1e;
+  word-spacing: 6px;
+  margin-top: 14px;
+}
+
+.notFoundContainer img {
+  min-width: 286px;
+  width: 40%;
+  margin-top: 40px;
+}
+
+@media (max-width: 360px) {
+  .notFoundContainer img {
+    min-width: 260px;
+  }
+}
+.link {
+  margin-top: 30px;
+}
+.buttonBack {
+  width: 237px;
+  border-radius: 4px;
+  font-size: 18px;
+  padding: 22px 0;
+}
