@@ -1,6 +1,7 @@
-## React app
+# React app
 
-# functionalities:
+## functionalities:
   form validation, add to cart, product filtering, search, RESTful API, cookie management, and email notifications.
 
-# demo : [https://e-commerce-car.netlify.app/](url)
+### demo: [e-commerce-car](https://e-commerce-car.netlify.app/)
+
