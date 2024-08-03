@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "carName": "AUDI",
+    "mainImge": "/images/car-list-one.png",
+    "description": {
+      "partOne": "Audi's latest models feature technology",
+      "partTwo": "Experience the perfect blend",
+      "partThree": "Unmatched driving"
+    }
+  },
+  {
+    "id": 2,
+    "carName": "Honda",
+    "mainImge": "/images/car-list-two.png",
+    "description": {
+      "partOne": "Honda offers reliability and efficiency.",
+      "partTwo": "Cutting-edge design and practical",
+      "partThree": "Ideal for everyday "
+    }
+  },
+  {
+    "id": 3,
+    "carName": "VOLVO",
+    "mainImge": "/images/car-list-three.png",
+    "description": {
+      "partOne": "Volvo combines safety with Scandinavian.",
+      "partTwo": "Luxurious interiors with modern",
+      "partThree": "A driving experience"
+    }
+  },
+  {
+    "id": 4,
+    "carName": "BMW",
+    "mainImge": "/images/car-list-four.png",
+    "description": {
+      "partOne": "BMW sets the standard for luxury modern ",
+      "partTwo": "Delivering an unparalleled everyday",
+      "partThree": "Innovative engineering"
+    }
+  }
+]

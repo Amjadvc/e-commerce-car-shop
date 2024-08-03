@@ -1,6 +1,9 @@
 .activeColor {
   border: 3px solid var(--color-primary-1) !important;
 }
+.theamActiveColor {
+  border: 3px solid var(--color-primary-1) !important;
+}
 
 .buttonColors {
   border: none;
@@ -9,6 +12,9 @@
   height: 28px;
   border-radius: 50%;
   cursor: pointer;
+}
+.themItemColor {
+  filter: invert(1);
 }
 @media (max-width: 992px) {
   .buttonColors {

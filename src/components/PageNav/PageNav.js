@@ -5,6 +5,7 @@ import ButtonNavBar from "../NavBar/ButtonNavBar";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useCars } from "../../context/CarItemsContext";
 
 const navVariants = {
   hidden: { opacity: 0 },
@@ -12,13 +13,13 @@ const navVariants = {
     opacity: 1,
     transition: {
       duration: 1,
-      // delay: 0.2,
     },
   },
 };
 
 function PageNav({ className }) {
   const [isActive, setIsActive] = useState(false);
+  const { quantity } = useCars();
 
   function handelIsActive() {
     setIsActive(!isActive);
@@ -66,10 +67,15 @@ function PageNav({ className }) {
 
         <ul className={`${styles.listTwo} ${isActive ? styles.barActive : ""}`}>
           <li>
-            <NavLink to={"/cart"}>
-              <img src={myCart} alt="cart" />
+            <NavLink to={"/cart"} className={styles.cart}>
+              <div className={styles.imeContainer}>
+                <img className={styles.myCart} src={myCart} alt="cart" />
+              </div>
+
+              <div className={styles.cartCount}>{quantity}</div>
             </NavLink>
           </li>
+
           <li>
             <NavLink
               to={"/register"}

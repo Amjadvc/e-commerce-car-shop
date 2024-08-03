@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import styles from "./LandingPage.module.css";
 import carBg from "../../assets/svg/carBg.svg";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
 const contentVariants = {
   hidden: {
@@ -38,7 +39,6 @@ const landingCarBgVariants = {
 };
 
 function LandingPage() {
-  // const isLargeScreen = useMediaQuery("(min-width: 1200px)");
   return (
     <div className={`container ${styles.homeContainr}`}>
       <motion.div
@@ -53,12 +53,13 @@ function LandingPage() {
           The culmimination of comfort,luxury,and powerrul living is embodied in
           the First-Ever BMWX7 -the biggest BMW ever built.
         </p>
-
-        <Button>EXPLORE</Button>
+        <Link to={"/catalogue"}>
+          <Button>EXPLORE</Button>
+        </Link>
       </motion.div>
       <div className={styles.image}>
         <motion.img
-          className={styles.landingCarBg}
+          className={`${styles.landingCarBg} `}
           variants={landingCarBgVariants}
           initial="hidden"
           animate="visible"

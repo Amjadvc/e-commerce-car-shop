@@ -1,4 +1,13 @@
-export default function Star({ full, color, size }) {
+import styles from "./Star.module.css";
+export default function Star({
+  full,
+  color,
+  size,
+  index,
+  handleClick,
+  handleMouseEnter,
+  handleMouseLeave,
+}) {
   const starStyle = {
     width: `${size}px`,
     height: `${size}px`,
@@ -6,7 +15,13 @@ export default function Star({ full, color, size }) {
   };
 
   return (
-    <span style={starStyle}>
+    <span
+      className={styles.star}
+      style={starStyle}
+      onClick={() => handleClick(index)}
+      onMouseEnter={() => handleMouseEnter(index)}
+      onMouseLeave={() => handleMouseLeave(index)}
+    >
       {full ? (
         <svg viewBox="0 0 41 41" xmlns="http://www.w3.org/2000/svg">
           <path

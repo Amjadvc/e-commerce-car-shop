@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./SliderItem.module.css";
+
 function SliderItem({ item }) {
   const [isActiveItem, setIsActiveItem] = useState(false);
   return (

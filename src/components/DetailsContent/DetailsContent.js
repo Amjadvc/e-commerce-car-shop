@@ -4,103 +4,77 @@ import StarList from "../Star/StarList";
 import detailBg from "../../assets/svg/bg.svg";
 import Button from "../Button/Button";
 import DetailsHeader from "./DetailsHeader";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import ButtonColor from "./ButtonColor";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useCars } from "../../context/CarItemsContext";
+import PopupNotificationDelete from "../Popup/PopupNotification/PopupNotificationDelete";
 
-const contentH3Variants = {
-  hidden: { x: +100, opacity: 0 },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      type: "tween",
-      // stiffness: 60,
-      duration: 0.5,
-      ease: "easeIn",
-      delay: 0.1,
+function detailsVariants(delay) {
+  return {
+    hidden: { x: +100, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: "tween",
+        duration: 0.5,
+        ease: "easeIn",
+        delay,
+      },
     },
-  },
-};
-const detailsRatingVariants = {
-  hidden: { x: +100, opacity: 0 },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      ...contentH3Variants.visible.transition,
-      delay: 0.2,
-    },
-  },
-};
-const detailsDescriptionVariants = {
-  hidden: { x: +100, opacity: 0 },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      ...contentH3Variants.visible.transition,
-      delay: 0.3,
-    },
-  },
-};
-const detailsColorVariants = {
-  hidden: { x: +100, opacity: 0 },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      ...contentH3Variants.visible.transition,
-      delay: 0.4,
-    },
-  },
-};
-const quntityPriceVariants = {
-  hidden: { x: +100, opacity: 0 },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      ...contentH3Variants.visible.transition,
-      delay: 0.5,
-    },
-  },
-};
-const buttonsVariants = {
-  hidden: { x: +100, opacity: 0 },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      ...contentH3Variants.visible.transition,
-      delay: 0.6,
-    },
-  },
-};
+  };
+}
+
+const contentH3Variants = detailsVariants(0.1);
+const detailsRatingVariants = detailsVariants(0.2);
+const detailsDescriptionVariants = detailsVariants(0.3);
+const detailsColorVariants = detailsVariants(0.4);
+const quntityPriceVariants = detailsVariants(0.5);
+const buttonsVariants = detailsVariants(0.6);
 
 function DetailsContent({ matchedCar }) {
   const {
     colors: colorArray,
     price: carPrice,
-    rating,
-    description,
+    quantity,
+    make,
+    model,
+    engine,
+    horsepower,
   } = matchedCar;
 
+  const { addToCart } = useCars();
+  const [choosenRating, setChoosenRating] = useState(0);
   const [isActiveColor, setIsActiveColor] = useState(colorArray[0]);
-  const [quntity, setQuntity] = useState(1);
+  const [carQuntity, setICarQuntity] = useState(quantity);
+  const snackbarRef = useRef(null);
+  const newPriec = carPrice * carQuntity;
 
   function handelActiveColor(color) {
     setIsActiveColor(color);
   }
 
   function handelDecrease() {
-    setQuntity((quntity) => (quntity === 1 ? 1 : (quntity -= 1)));
+    setICarQuntity((carQuntity) => (carQuntity === 1 ? 1 : (carQuntity -= 1)));
   }
 
   function handelIncrease() {
-    setQuntity((quntity) => (quntity += 1));
+    setICarQuntity((carQuntity) => (carQuntity += 1));
   }
+  function handleBuy(handelNewItem) {
+    addToCart(handelNewItem);
+    snackbarRef.current.showPopupsuccs();
+  }
+
+  const handelNewItem = {
+    ...matchedCar,
+    rating: choosenRating,
+    price: newPriec,
+    choosenColor: isActiveColor,
+    quantity: carQuntity,
+  };
 
   return (
     <div className={styles.content}>
@@ -121,7 +95,7 @@ function DetailsContent({ matchedCar }) {
         whileInView="visible"
       >
         <DetailsHeader>Rating And Review</DetailsHeader>
-        <StarList defaultRating={rating} />
+        <StarList setChoosenRating={setChoosenRating} />
       </motion.div>
 
       <motion.div
@@ -131,7 +105,11 @@ function DetailsContent({ matchedCar }) {
         whileInView="visible"
       >
         <DetailsHeader>Description</DetailsHeader>
-        <p>{description}</p>
+        <p>
+          {`The culmimination of comfort,
+          ${make} ${model}. This vehicle, featuring a ${engine} engine, delivers
+          ${horsepower} horsepower for a thrilling drive.`}
+        </p>
       </motion.div>
 
       <motion.div
@@ -161,12 +139,12 @@ function DetailsContent({ matchedCar }) {
       >
         <div className={styles.quntity}>
           <button onClick={handelDecrease}>-</button>
-          <span>{quntity}</span>
+          <span>{carQuntity}</span>
           <button onClick={handelIncrease}>+</button>
         </div>
         <div className={styles.price}>
           <p>
-            Price: <span>{carPrice * quntity}$</span>
+            Price: <span>{carPrice * carQuntity}$</span>
           </p>
         </div>
       </motion.div>
@@ -178,10 +156,25 @@ function DetailsContent({ matchedCar }) {
         whileInView="visible"
       >
         <Link to="/cart">
-          <Button className={styles.addCart}>Add To Cart</Button>
+          <Button
+            onClickHandler={() => handleBuy(handelNewItem)}
+            className={styles.addCart}
+          >
+            Add To Cart
+          </Button>
         </Link>
-        <Button className={styles.buyNow}>Buy Now</Button>
+        <Button
+          onClickHandler={() => handleBuy(handelNewItem)}
+          className={styles.buyNow}
+        >
+          Buy Now
+        </Button>
       </motion.div>
+      <PopupNotificationDelete
+        styless={"addedFromHome"}
+        ref={snackbarRef}
+        message={"Item Added Successfully!"}
+      />
     </div>
   );
 }

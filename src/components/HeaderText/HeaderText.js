@@ -1,12 +1,14 @@
 import styles from "./HeaderText.module.css";
 import { motion } from "framer-motion";
+import { useHomeVariants } from "../../context/HomeVariantsContext";
 
-function HeaderText({ children, className, homeVariants }) {
+function HeaderText({ children, className }) {
+  const { homeVariant } = useHomeVariants();
   return (
-    <div className={styles.headerText}>
+    <div className={`${styles.headerText} ${className}`}>
       <motion.div
-        className={`container ${styles.headerTextContainer} ${className}`}
-        variants={homeVariants}
+        className={`container ${styles.headerTextContainer}`}
+        variants={homeVariant}
         initial="hidden"
         whileInView="visible"
       >

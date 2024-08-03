@@ -1,0 +1,191 @@
+.carItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 400px;
+  /* row-gap: 15px; */
+  row-gap: 25px;
+  padding: 10px 0;
+}
+
+@media (max-width: 992px) {
+  .carItem {
+    width: 375px;
+  }
+}
+@media (max-width: 769px) {
+  .carItem {
+    width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carItem {
+    width: 360px;
+  }
+}
+
+@media (max-width: 360px) {
+  .carItem {
+    width: 100%;
+  }
+}
+
+.imgContainer {
+  position: relative;
+  width: 75%;
+  overflow: hidden;
+  border-radius: 49px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.imgH {
+  width: 102%;
+  clip-path: inset(0.9px 0 0.9px 0px);
+  z-index: 1;
+}
+
+.imgContainer::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0%;
+  height: 0%;
+  background-color: #a88c8e;
+  opacity: 0.8;
+  border-radius: 47px;
+  transition: 0.3s;
+  z-index: 2;
+}
+.imgContainer:hover::before {
+  width: 130%;
+  height: 130%;
+}
+
+.imgContainer::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  background-color: #ffa4ad;
+  z-index: 2;
+}
+
+@media (max-width: 330px) {
+  .imgH {
+    width: 92%;
+  }
+}
+
+.imgInnerText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  font-weight: bold;
+  font-size: 30px;
+  font-family: "Righteous";
+  color: var(--color-primary-2);
+  transition: 0.4s;
+  opacity: 0;
+}
+
+.imgContainer:hover .imgInnerText {
+  opacity: 1;
+}
+
+.discriptionCard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 19px;
+}
+
+.discriptionCard > h3 {
+  color: #000000d6;
+  font-family: "Righteous", sans-serif;
+  font-weight: 400;
+  font-size: 35px;
+}
+
+@media (max-width: 480px) {
+  .discriptionCard > h3 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 330px) {
+  .discriptionCard > h3 {
+    font-size: 35px;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
+  font-size: 17px;
+  font-family: "Righteous";
+  color: #555555;
+}
+
+@media (max-width: 480px) {
+  .text {
+    font-size: 17px;
+  }
+}
+@media (max-width: 360px) {
+  .text {
+    font-size: 15px;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+}
+.buttons button {
+  font-size: 17px;
+  width: 147px;
+  height: 39px;
+  border: 1px solid var(--color-primary-1);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+@media (max-width: 360px) {
+  .buttons a {
+    width: 100%;
+    font-size: 18px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 360px) {
+  .buttons button {
+    width: 50%;
+    font-size: 18px;
+    height: 36px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 320px) {
+  .buttons button {
+    width: 70%;
+  }
+}

@@ -1,0 +1,215 @@
+.register {
+  width: 100%;
+  z-index: 2;
+}
+
+@media (max-width: 769px) {
+  .register {
+    z-index: 0;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+  margin-top: 10px;
+}
+.text {
+  font-size: 48px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: var(--color-theard-2);
+}
+
+.underLine {
+  width: 15%;
+  height: 6px;
+  background: var(--color-theard-2);
+  border-radius: 9px;
+}
+.inputs {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.inputContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 88%;
+  margin: 0 auto;
+}
+
+.inputContainer label {
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #584f50;
+  margin-bottom: 3px;
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputContainer label svg {
+  border: 2px solid;
+}
+
+.hide {
+  display: none;
+}
+.valid {
+  color: var(--color-theard-7);
+  width: 10px;
+  height: 10px;
+  padding: 1px;
+}
+
+.invalid {
+  color: var(--color-theard-7);
+  width: 13px;
+  height: 13px;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin: auto;
+  width: 100%;
+  height: 51px;
+  background-color: var(--color-primary-2);
+  padding: 4px;
+  border-radius: 2px;
+  background-image: linear-gradient(
+      var(--color-primary-2),
+      var(--color-primary-2)
+    ),
+    linear-gradient(to right, #314654, #9e9e9e);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.input img {
+  padding: 0 15px;
+  width: 46px;
+}
+
+.input input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--color-theard-2);
+  font-size: 16px;
+}
+.noteContainer {
+  width: 100%;
+  height: 23px;
+  font-size: 10px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+@media (max-width: 480px) {
+  .noteContainer {
+    font-size: 10.5px;
+    height: 33px;
+  }
+}
+@media (max-width: 360px) {
+  .noteContainer {
+    min-height: 33px;
+    height: 100%;
+  }
+}
+
+.noteContainer p {
+  width: 100%;
+  height: 100%;
+  padding: 0 9px;
+  display: flex;
+  align-items: center;
+  font-family: sans-serif;
+  background: var(--color-theard-8);
+  color: var(--color-primary-2);
+  border-radius: 5px;
+  opacity: 0;
+  animation: fadIn 0.2s 1s linear forwards;
+}
+
+@keyframes fadIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+.inputContainer p svg {
+  padding-right: 5px;
+}
+
+.heveAcountContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+.heveAcountContainer p {
+  font-weight: bold;
+  color: #141e54;
+}
+
+.heveAcountContainer p span {
+  padding-left: 5px;
+}
+
+.heveAcountContainer p a {
+  color: #e91e63;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  word-spacing: 1px;
+}
+
+.submitContainer {
+  display: flex;
+  width: 88%;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-bottom: 15px;
+}
+
+.submitContainer button {
+  outline: none;
+  border: none;
+  height: 55px;
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 3px;
+  color: var(--color-primary-2);
+  background: var(--color-theard-6);
+  cursor: pointer;
+  box-shadow: 0px 8px 6px -4px var(--color-theard-4);
+}
+.submitContainer button:disabled {
+  background: var(--color-theard-5);
+  cursor: not-allowed;
+}

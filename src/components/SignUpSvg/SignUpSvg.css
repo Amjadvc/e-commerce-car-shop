@@ -1,0 +1,60 @@
+svg#freepik_stories-sign-up:not(.animated) .animable {
+  opacity: 0;
+}
+svg#freepik_stories-sign-up.animated #freepik--background-complete--inject-54 {
+  animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp,
+    1.5s Infinite linear heartbeat;
+  animation-delay: 0s, 1s;
+}
+svg#freepik_stories-sign-up.animated #freepik--speech-bubble--inject-54 {
+  animation: 1s 1 forwards linear fadeIn;
+  animation-delay: 0s;
+}
+svg#freepik_stories-sign-up.animated #freepik--Character--inject-54 {
+  animation: 1s 1 forwards linear fadeIn;
+  animation-delay: 0s;
+}
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: inherit;
+  }
+}
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.1);
+  }
+  30% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  60% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.animator-hidden {
+  display: none;
+}

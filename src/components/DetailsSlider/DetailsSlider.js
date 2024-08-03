@@ -36,7 +36,7 @@ const mainImageVariants = {
 };
 
 function DetailsSlider({ matchedCar }) {
-  const { carName, engineCopacity, slderImge } = matchedCar;
+  const { make, engine, slderImge, model } = matchedCar;
   const [sliderIndex, setSliderIndex] = useState(0);
 
   function handelIndex(i) {
@@ -62,24 +62,27 @@ function DetailsSlider({ matchedCar }) {
         initial="hidden"
         animate="visible"
       >
-        <p className={styles.trak}>
-          Type
+        <p className={`${styles.trak} `}>
+          Car
           <span>
             <img src={trakSvg} alt="track" />
           </span>
-          Car
+          catalogue
           <span>
             <img src={trakSvg} alt="track" />
           </span>
           <strong>Details</strong>
         </p>
-        <h3 className={styles.carName}>{carName} - Civic Type R</h3>
-        <p className={styles.capacity}>{engineCopacity} cc</p>
+        <h3 className={`${styles.carName} `}>
+          {make === "Mercedes-Benz" ? "Mercedes" : make} - {model}
+        </h3>
+        {/* <p className={styles.capacity}>{engineCopacity} cc</p> */}
+        <p className={styles.capacity}>{engine} cc</p>
       </motion.div>
       <div className={styles.imgeSliderInner}>
         <div className={styles.activeImge}>
           <motion.img
-            className={styles.mainImage}
+            className={`${styles.mainImage}`}
             src={slderImge[sliderIndex]}
             alt="active imge"
             variants={mainImageVariants}

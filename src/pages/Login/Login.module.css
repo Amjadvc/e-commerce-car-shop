@@ -1,0 +1,121 @@
+.login {
+  position: relative;
+  min-height: 40vh;
+}
+
+@media (max-width: 769px) {
+  .login {
+    overflow-x: clip;
+  }
+}
+
+@media (max-width: 769px) {
+  .loginNav {
+    background-color: var(--color-secodery-2);
+  }
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  left: -181px;
+  height: 109vh;
+  width: 100%;
+  object-fit: fill;
+  z-index: -1;
+}
+
+@media (min-width: 2000px), (min-height: 1000px) {
+  .bg {
+    height: 67% !important;
+    width: 100% !important;
+    object-fit: contain !important;
+    top: -49px !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .bg {
+    left: -160px;
+    height: 93vh;
+    width: 98%;
+  }
+}
+@media (max-width: 992px) {
+  .bg {
+    left: 0px;
+    height: 96vh;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+@media (max-width: 769px) {
+  .bg {
+    left: 0px;
+    top: 177px;
+    height: 53vh;
+    width: 121%;
+    object-fit: cover;
+  }
+}
+@media (max-width: 480px) {
+  .bg {
+    height: 33vh;
+  }
+}
+
+/* /// */
+.container {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 22px;
+  display: flex;
+  margin: 150px auto 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 769px) {
+  .container {
+    height: 100%;
+    flex-direction: column-reverse;
+    margin: 200px auto 50px;
+  }
+}
+@media (max-width: 480px) {
+  .container {
+    margin: 140px auto 50px;
+  }
+}
+
+.loginContent {
+  width: 55%;
+  min-height: 473px;
+  height: 100%;
+  padding: 0 25px 20px;
+  background-image: linear-gradient(180deg, var(--color-theard-1), #525252a6);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+@media (max-width: 992px) {
+  .loginContent {
+    width: 70%;
+  }
+}
+@media (max-width: 769px) {
+  .loginContent {
+    width: 95%;
+  }
+}
+@media (max-width: 480px) {
+  .loginContent {
+    width: 98%;
+    padding: 0 4px 20px;
+    min-height: 440px;
+  }
+}

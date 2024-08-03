@@ -1,0 +1,35 @@
+.home {
+  width: 100%;
+  overflow: hidden;
+  background-color: #f4f4f4;
+  position: relative;
+}
+
+.carSlide {
+  margin: 0 auto 100px;
+}
+
+@media (max-width: 769px) {
+  .carSlide {
+    margin: 190px 0;
+  }
+}
+@media (max-width: 480px) {
+  .carSlide {
+    margin: 230px 0 90px;
+  }
+}
+
+.carList {
+  margin: 190px 0;
+}
+
+@media (max-width: 480px) {
+  .carList {
+    margin: 90px 0;
+  }
+}
+
+.bgColor {
+  background-color: #f4f4f4;
+}

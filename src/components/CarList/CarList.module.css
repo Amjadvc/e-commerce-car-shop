@@ -1,5 +1,11 @@
 .carList {
   margin-bottom: 100px;
+  margin-top: 70px;
+}
+@media (max-width: 480px) {
+  .carList {
+    margin-top: 0px;
+  }
 }
 
 .carListContainer {
@@ -11,8 +17,30 @@
   gap: 100px 20px;
 }
 
+@media (max-width: 992px) {
+  .carListContainer {
+    /* width: 295px; */
+    gap: 100px 15px;
+  }
+}
+
 @media (max-width: 769px) {
   .carListContainer {
     grid-template-columns: 1fr;
   }
+}
+
+.noDataFound {
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  grid-column: 1 / 3;
+  font-size: 26px;
+  margin: 20px 0;
+  font-family: sans-serif;
+  color: var(--color-primary-1);
+  font-weight: bold;
+  text-shadow: 1.5px 0 0 #4d4343;
 }

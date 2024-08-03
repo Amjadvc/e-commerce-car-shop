@@ -3,26 +3,54 @@ import seatorImg from "../../assets/svg/carListIconOne.svg";
 import manualImg from "../../assets/svg/carListIconTwo.svg";
 import speedImg from "../../assets/svg/carListIconThree.svg";
 import Button from "../Button/Button";
+import PopupNotificationDelete from "../Popup/PopupNotification/PopupNotificationDelete";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useCars } from "../../context/CarItemsContext";
+import { useHomeVariants } from "../../context/HomeVariantsContext";
+import { useRef } from "react";
 
-export default function CarItem({ item, homeVariants }) {
-  const { mainImge, carName, seator, transmission, speed, price } = item;
+export default function CarItem({ item }) {
+  const {
+    make: carName,
+    model,
+    fuelType,
+    transmission,
+    price,
+    horsepower,
+  } = item;
+  const { addToCart } = useCars();
+  const { homeVariant } = useHomeVariants();
+
+  const snackbarRef = useRef(null);
+
+  function handelBuyNow(item) {
+    addToCart(item);
+    snackbarRef.current.showPopupsuccs();
+  }
+
   return (
     <motion.div
       className={styles.carItem}
-      variants={homeVariants}
+      variants={homeVariant}
       initial="hidden"
       whileInView="visible"
     >
-      <img src={mainImge} alt={`car ${mainImge}`} />
+      <div className={styles.imgeContainer}>
+        <img src={item.mainImg} alt={`car ${item.make}`} />
+      </div>
+
       <div className={styles.discriptionCard}>
-        <h3>{carName}</h3>
+        <div className={styles.cardHeader}>
+          <h3>{carName === "Mercedes-Benz" ? "Mercedes" : carName}</h3>
+          <span>{model}</span>
+        </div>
+
         <div className={styles.properties}>
           <div className={styles.inner}>
             <img src={seatorImg} alt="seator svg" />
             <p>
-              <span>{seator}</span> Seator
+              <span>{fuelType}</span>
             </p>
           </div>
           <div className={styles.inner}>
@@ -31,7 +59,7 @@ export default function CarItem({ item, homeVariants }) {
           </div>
           <div className={styles.inner}>
             <img src={speedImg} alt="seator svg" />
-            <p>{speed}KM/1-lt</p>
+            <p>{horsepower}KM/1-lt</p>
           </div>
         </div>
         <p>Starting at ${price}/Day</p>
@@ -40,8 +68,14 @@ export default function CarItem({ item, homeVariants }) {
         <Link to={`details/${item.id}`}>
           <Button className={styles.buttonDetails}>Details &gt;</Button>
         </Link>
-        <Button>Buy Now</Button>
+        <Button onClickHandler={() => handelBuyNow(item)}>Buy Now</Button>
       </div>
+
+      <PopupNotificationDelete
+        styless={"addedFromHome"}
+        ref={snackbarRef}
+        message={"Item Added Successfully!"}
+      />
     </motion.div>
   );
 }

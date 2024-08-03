@@ -1,0 +1,172 @@
+.bgColor {
+  background-color: #fafafa;
+}
+.catalogue {
+  /* height: 100vh; */
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding-top: 59px;
+  background-color: #fafafa;
+}
+
+@media (max-width: 769px) {
+  .catalogue {
+    padding-top: 10px;
+  }
+}
+
+.catalogueContainr {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+@media (max-width: 769px) {
+  .catalogueContainr {
+    row-gap: 50px;
+  }
+}
+
+.trakContainer {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 769px) {
+  .trakContainer {
+    justify-content: center;
+  }
+}
+.trak {
+  display: flex;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #878787;
+  line-height: 1.6px;
+}
+.trak strong {
+  color: #787878;
+}
+.trak span img {
+  width: 15px;
+  margin: 0 5px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  row-gap: 20px;
+  flex-direction: column;
+}
+
+@media (max-width: 480px) {
+  .header {
+    row-gap: 9px;
+  }
+}
+.hero .header p {
+  font-family: "Roboto";
+  font-weight: bold;
+  font-size: 21px;
+  color: #878787;
+}
+
+@media (max-width: 480px) {
+  .hero .header p {
+    font-size: 18px;
+  }
+}
+
+.hero .header h2 {
+  font-family: "Roboto";
+  font-weight: bold;
+  font-size: 47px;
+  color: #454545;
+}
+@media (max-width: 480px) {
+  .hero .header h2 {
+    font-size: 33px;
+  }
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 40px;
+  padding-top: 29px;
+}
+
+@media (max-width: 480px) {
+  .btns {
+    column-gap: 33px;
+    padding-top: 19px;
+  }
+}
+
+.btns button {
+  border: none;
+  cursor: pointer;
+  width: 126px;
+  padding: 11px;
+  font-size: 20px;
+  color: var(--color-primary-2);
+  font-family: "Roboto";
+  border-radius: 2px;
+  transition: 0.2s;
+}
+.btns button:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+  .btns button {
+    width: 110px;
+    padding: 9px;
+    font-size: 17px;
+    color: var(--color-primary-2);
+  }
+}
+
+.detailsBtn {
+  background: #969696;
+}
+.buyNowBtn {
+  background: var(--color-primary-1);
+}
+
+.heroImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.innerHeroImg {
+  width: 64%;
+}
+
+@media (max-width: 480px) {
+  .innerHeroImg {
+    width: 76%;
+  }
+}
+
+.innerHeroImg img {
+  width: 100%;
+}
+
+.heroMessages {
+  margin: 20px auto;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: var(--color-primary-1);
+}

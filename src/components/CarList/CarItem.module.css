@@ -5,67 +5,92 @@
   justify-content: center;
   text-align: center;
   align-items: center;
-  width: 340px;
+  width: 400px;
   row-gap: 10px;
 }
 
-@media (max-width: 1200px) {
-  .carItem {
-    width: 312px;
-  }
-}
 @media (max-width: 992px) {
   .carItem {
-    width: 295px;
+    width: 375px;
   }
 }
 @media (max-width: 769px) {
   .carItem {
-    width: 300px;
+    width: 400px;
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 480px) {
   .carItem {
-    width: 275px;
+    width: 358px;
+    row-gap: 0px;
   }
 }
 
-.carItem > img {
+.imgeContainer {
+  height: 209px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  width: 85%;
+}
+
+@media (max-width: 480px) {
+  .imgeContainer {
+    margin-bottom: 0;
+  }
+}
+
+.imgeContainer img {
   width: 100%;
 }
 
 @media (max-width: 330px) {
-  .carItem > img {
+  .imgeContainer img {
     width: 92%;
   }
 }
 
 .discriptionCard {
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  row-gap: 19px;
+  row-gap: 25px;
   margin-bottom: 19px;
 }
 
-.discriptionCard > h3 {
+.cardHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.cardHeader > h3 {
   color: #000000d6;
   font-family: "Righteous", sans-serif;
   font-weight: 400;
-  font-size: 35px;
+  font-size: 34px;
 }
 
 @media (max-width: 480px) {
-  .discriptionCard > h3 {
+  .cardHeader > h3 {
     font-size: 30px;
   }
 }
 
 @media (max-width: 330px) {
-  .discriptionCard > h3 {
+  .cardHeader > h3 {
     font-size: 35px;
   }
+}
+
+.cardHeader span {
+  color: #414141d6;
+  font-family: "Righteous", sans-serif;
+  font-weight: 400;
+  font-size: 25px;
 }
 
 .discriptionCard > p {
@@ -81,7 +106,13 @@
 
 .properties {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 19px;
+}
+@media (max-width: 992px) {
+  .properties {
+    gap: 8px;
+  }
 }
 
 .properties .inner {
@@ -110,7 +141,12 @@
     margin-left: 1px;
   }
 }
-@media (max-width: 360px) {
+@media (max-width: 480px) {
+  .inner > p {
+    font-size: 16px;
+  }
+}
+@media (max-width: 350px) {
   .inner > p {
     font-size: 15px;
   }
@@ -118,8 +154,15 @@
 
 .buttons {
   display: flex;
-  justify-content: space-between;
-  width: 90%;
+  justify-content: center;
+  width: 100%;
+  gap: 50px;
+}
+
+@media (max-width: 480px) {
+  .buttons {
+    padding-top: 20px;
+  }
 }
 .buttons button {
   width: 122px;

@@ -1,0 +1,42 @@
+.pageHeader {
+  font-family: "Righteous", sans-serif;
+  font-size: 56px;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+  width: fit-content;
+  position: relative;
+  color: #000000b8;
+}
+@media (max-width: 1200px) {
+  .pageHeader {
+    font-size: 47px;
+  }
+}
+@media (max-width: 769px) {
+  .pageHeader {
+    font-size: 38px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageHeader {
+    font-size: 34px;
+  }
+}
+
+.pageHeader::before {
+  content: "";
+  position: absolute;
+  width: 114%;
+  height: 6px;
+  border-radius: 25px;
+  bottom: -11px;
+  background: #000000b8;
+}
+
+@media (max-width: 480px) {
+  .pageHeader::before {
+    height: 5px;
+  }
+}

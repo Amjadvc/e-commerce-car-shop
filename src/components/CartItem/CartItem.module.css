@@ -5,7 +5,26 @@
 }
 
 .imgeTabel {
-  width: 90px;
+  width: 100%;
+}
+
+.imgContaienr {
+  height: 90px;
+  width: 97px;
+  background: #976e7269;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 18px;
+}
+
+@media (max-width: 480px) {
+  .imgContaienr {
+    height: 90px;
+    width: 90px;
+    padding: 2px;
+  }
 }
 
 @media (max-width: 769px) {
@@ -16,9 +35,9 @@
 
 .itemTr td {
   font-family: Righteous;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
-  color: #00000080;
+  color: var(--color-theard-3);
   padding: 30px 10px;
   text-align: center;
 }
@@ -36,6 +55,8 @@
   align-items: start;
   text-align: start;
   row-gap: 6px;
+  /* min-width: 100px; */
+  width: 100px;
 }
 
 .carType {
@@ -58,7 +79,14 @@
   transform: scale(1.5);
 }
 
-@media (max-width: 480px) {
+@media (min-width: 769px) {
+  .itemTr:nth-child(odd) {
+    background-image: linear-gradient(45deg, #e3d0d254, transparent);
+    background-color: #d047550a;
+  }
+}
+
+@media (max-width: 769px) {
   .productContainer {
     flex-direction: row-reverse;
     justify-content: end;
@@ -76,11 +104,12 @@
 
   .itemTr {
     margin-bottom: 35px;
-    background: #dfd2d3;
-    padding: 12px;
+    background: #f5f5f54d;
+    padding: 12px 18px;
     border-radius: 10px;
-    box-shadow: 0px 3px 5px 0px var(--color-primary-1), 0px 6px 2px 0px #2d2b2c;
+    border: 1px solid #c4bebe;
   }
+
   .itemTr td {
     text-align: right;
     padding: 27px 10px;
@@ -90,6 +119,9 @@
     display: flex;
     align-items: center;
     justify-content: end;
+  }
+  .itemTr td:not(:last-child) {
+    border-bottom: 3px solid #efecec;
   }
   .itemTr td::before {
     content: attr(datalabel);
@@ -107,7 +139,7 @@
   }
 
   .imgeTabel {
-    width: 75px;
+    width: 100%;
   }
 }
 

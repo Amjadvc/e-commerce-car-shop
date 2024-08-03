@@ -1,48 +1,51 @@
 import styles from "./CartItem.module.css";
 import deleteIcon from "../../assets/images/close_24px.png";
-import { motion } from "framer-motion";
-
-const itemTrVariants = {
-  hidden: { x: -100, opacity: 0 },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      type: "tween",
-      duration: 0.3,
-      ease: "easeIn",
-      delay: 0.2,
-    },
-  },
-};
+import { usePopup } from "../../context/PopupContext";
 
 function CartItem({ item }) {
-  const { mainImge, carName, code, engineCopacity, colors, price } = item;
+  const { setShwoPopupD, setItemToDelete } = usePopup();
+  const {
+    mainImg,
+    make,
+    year,
+    model,
+    price,
+    choosenColor,
+    colors,
+    quantity,
+    rating,
+  } = item;
+
+  function handelDelete(item) {
+    setShwoPopupD((prev) => !prev);
+    setItemToDelete(item);
+  }
+
   return (
-    <motion.tr
-      className={styles.itemTr}
-      variants={itemTrVariants}
-      initial="hidden"
-      whileInView="visible"
-    >
+    <tr className={`${styles.itemTr} `}>
       <td datalabel="Product">
         <div className={styles.productContainer}>
-          <img src={mainImge} alt={mainImge} className={styles.imgeTabel} />
+          <div className={styles.imgContaienr}>
+            <img src={mainImg} alt={mainImg} className={styles.imgeTabel} />
+          </div>
           <div className={styles.productDetails}>
-            <h4 className={styles.carType}>{carName}</h4>
-            <p>Code:{code}</p>
-            <p>Engine Copacity:{engineCopacity}</p>
+            <h4 className={styles.carType}>{make}</h4>
+            <p>Model: {model}</p>
+            <p>Year: {year}</p>
+            <p>rating: {rating ? rating : "∅"}</p>
           </div>
         </div>
       </td>
-      <td datalabel="Price">{price}</td>
-      <td datalabel="Color">{colors[0]}</td>
+      <td datalabel="Totla Price">{price}</td>
+      <td datalabel="Price">{price / quantity}</td>
+      <td datalabel="Quantity">{quantity}</td>
+      <td datalabel="Color">{choosenColor ? choosenColor : colors[0]}</td>
       <td datalabel="Delete">
-        <button className={styles.btn}>
+        <button className={styles.btn} onClick={() => handelDelete(item)}>
           <img src={deleteIcon} alt="delete icon" />
         </button>
       </td>
-    </motion.tr>
+    </tr>
   );
 }
 

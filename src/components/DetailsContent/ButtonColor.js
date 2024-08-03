@@ -4,9 +4,10 @@ function ButtonColor({ itemColor, handelActiveColor, isActiveColor }) {
     <button
       onClick={handelActiveColor}
       style={{ backgroundColor: itemColor }}
-      className={`${styles.buttonColors} ${
-        isActiveColor ? styles.activeColor : ""
-      }`}
+      className={`${styles.buttonColors} ${isActiveColor && styles.activeColor}
+      ${isActiveColor && styles.theamActiveColor}
+      
+   `}
     ></button>
   );
 }

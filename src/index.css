@@ -4,16 +4,24 @@
 @import "https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap";
 
 :root {
-  /* --color-primary-1: #976e72; */
-  --color-primary-1: #a6696e;
+  --color-primary-1: #976e72;
   --color-primary-2: #ffff;
 
   --color-secodery-1: #000000c4;
   --color-secodery-2: #dfd2d3;
   --color-secodery-3: #000000;
   --color-secodery-4: #d9d9d9;
+
+  --color-theard-1: #e3d0d2;
+  --color-theard-2: #163442;
+  --color-theard-3: #00000080;
+  --color-theard-4: #d9c9c9;
+  --color-theard-5: #607d8bb0;
+  --color-theard-6: #9d2577;
+  --color-theard-7: #b06868;
+  --color-theard-8: #963b5a;
 }
-/* #894831 */
+
 * {
   padding: 0;
   margin: 0;
@@ -60,8 +68,3 @@ ul {
   display: flex;
   justify-content: center;
 }
-
-/* font-family: "Roboto", sans-serif; */
-/*  */
-
-/* font-family: "Righteous", sans-serif; */

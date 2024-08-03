@@ -37,6 +37,9 @@
   background-color: var(--color-primary-2);
   transition: 0.3s;
 }
+.themArrow:hover {
+  background-color: var(--color-secodery-3);
+}
 
 .arrow:hover :global(.inner) {
   fill: #969696;
